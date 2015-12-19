@@ -1,19 +1,22 @@
 def turn_on_l(x0, y0, x1, y1):
     for i in range(x1 - x0 + 1):
         for j in range(y1 - y0 + 1):
-            a_matrix[x0 + i][y0 + j] = 1
+            a_matrix[x0 + i][y0 + j] += 1
 
 
 def turn_off_l(x0, y0, x1, y1):
     for i in range(x1 - x0 + 1):
         for j in range(y1 - y0 + 1):
-            a_matrix[x0 + i][y0 + j] = 0
+            if (a_matrix[x0 + i][y0 + j] - 1) < 1:
+                a_matrix[x0 + i][y0 + j] = 0
+            if (a_matrix[x0 + i][y0 + j] - 1) > 0:
+                a_matrix[x0 + i][y0 + j] = a_matrix[x0 + i][y0 + j] - 1
 
 
 def toggle(x0, y0, x1, y1):
     for i in range(x1 - x0 + 1):
         for j in range(y1 - y0 + 1):
-            a_matrix[x0 + i][y0 + j] = invert(a_matrix[x0 + i][y0 + j])
+            a_matrix[x0 + i][y0 + j] += 2
 
 
 def invert(x):
