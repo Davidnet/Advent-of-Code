@@ -6,7 +6,7 @@ def nice(s):
         if s.count(candidate) > 1:
             possiblecandidate = True
             break
-    if possiblecandidate == True:
+    if possiblecandidate:
         for l in list(range(lengths)):
             if s[l] == s[l+2]:
                 return True
